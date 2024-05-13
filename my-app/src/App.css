@@ -1,5 +1,8 @@
-.App-header {
+body {
   background-color: #FFF9D8;
+}
+
+.menu {
   position: relative; /* Adjust this value to move the header higher */
   z-index: 1000;
   display: flex;
@@ -7,5 +10,11 @@
   justify-content: space-between;
   padding: 10px 20px; /* Adjust padding as needed */
   font-size: calc(10px + 2vmin);
+}
+
+.second-menu {
+  background-color: #373737;
+  height: 59px;
+ 
 }
 

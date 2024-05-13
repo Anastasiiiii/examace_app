@@ -1,0 +1,16 @@
+.menu {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.list li {
+    color: #FBF1F1;
+    font-family: "Mada", sans-serif;
+    font-size: medium;
+    
+    margin-top: 20px;
+    margin-left: 10%;
+    display: inline-block; 
+}

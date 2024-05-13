@@ -1,0 +1,47 @@
+/* Description.css */
+.description-container {
+    margin-left: 10%;
+    width: 80%;
+}
+
+.name {
+    color: #2C2B47;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
+    margin-bottom: 20px; /* Додайте простір після заголовка */
+}
+
+.description-content {
+    display: flex; /* Встановлюємо flex контейнер */
+    align-items: center; /* Вирівнюємо елементи по вертикалі */
+}
+
+.text {
+   color: black;
+   text-align: justify;
+   font-family: "Mada", sans-serif; 
+   width: 40%; /* Змінюємо ширину тексту на 60% */
+}
+
+.image {
+    width: 30%; /* Змінюємо ширину зображення на 40% */
+    margin-left: auto; /* Зміщуємо зображення в кінець контейнера */
+    margin-right: 10%;
+}
+.join-button {
+    width: 142px;
+    height: 51px;
+    background-color: #FEC447;
+    border: solid 1 black;
+    border-radius: 13px;
+    color: black;
+    font-family: "Mada", sans-serif; 
+    font-size: 24px;
+    box-shadow: 4px 3px #1A1C1A;
+}
+.button-div {
+   margin-top: 1%;
+   margin-bottom: 4%;
+}

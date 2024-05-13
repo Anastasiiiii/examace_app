@@ -7,6 +7,7 @@
 .menu {
     list-style-type: none;
     padding: 0;
+    margin-left: 6%;
     margin-right: var(--menu-width); /* Use the value of the variable */
     position: relative; /* Establish positioning context for absolute positioning */
 }
@@ -28,5 +29,5 @@
 #night-mode {
     position: absolute;
     margin-left: calc(100vw - var(--menu-width) - (var(--menu-item-width) * 3) - var(--additional-distance)); /* Calculate distance from the right edge of the screen */
-    top: 40px; /* Align to the top of the menu */
+    top: 20px; /* Align to the top of the menu */
 }
