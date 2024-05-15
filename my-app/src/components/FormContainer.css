@@ -1,0 +1,9 @@
+.form-container {
+    height: 500px;
+    background-image: linear-gradient(rgba(254, 196, 71, 0.4), rgba(254, 196, 71, 0.4)), url('../form_img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}

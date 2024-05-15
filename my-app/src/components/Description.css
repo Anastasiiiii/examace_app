@@ -1,4 +1,3 @@
-/* Description.css */
 .description-container {
   margin-left: 10%;
   width: 80%;
@@ -10,24 +9,24 @@
   font-weight: 400;
   font-style: normal;
   font-size: 3em;
-  margin-bottom: 20px; /* Додайте простір після заголовка */
+  margin-bottom: 20px;
 }
 
 .description-content {
-  display: flex; /* Встановлюємо flex контейнер */
-  align-items: center; /* Вирівнюємо елементи по вертикалі */
+  display: flex;
+  align-items: center;
 }
 
 .text {
   color: black;
   text-align: justify;
   font-family: "Mada", sans-serif;
-  width: 40%; /* Змінюємо ширину тексту на 60% */
+  width: 40%;
 }
 
 .image {
-  width: 30%; /* Змінюємо ширину зображення на 40% */
-  margin-left: auto; /* Зміщуємо зображення в кінець контейнера */
+  width: 30%;
+  margin-left: auto;
   margin-right: 10%;
 }
 .join-button {
@@ -40,6 +39,7 @@
   font-family: "Mada", sans-serif;
   font-size: 24px;
   box-shadow: 4px 3px #1a1c1a;
+  cursor: pointer;
 }
 .button-div {
   margin-top: 1%;

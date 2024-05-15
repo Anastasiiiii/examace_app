@@ -1,7 +1,8 @@
 import React from "react";
+import { useState } from "react";
 import "./Description.css";
 
-const Description = ({ name, text, img, button }) => {
+const Description = ({ name, text, img, button, onClickJoinButton }) => {
   return (
     <div className="description-container">
       <div className="description-content">
@@ -16,7 +17,11 @@ const Description = ({ name, text, img, button }) => {
         />
       </div>
       <div className="button-div">
-        <button type="button" className="join-button">
+        <button
+          type="button"
+          className="join-button"
+          onClick={onClickJoinButton}
+        >
           {button}
         </button>
       </div>

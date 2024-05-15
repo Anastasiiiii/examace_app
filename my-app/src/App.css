@@ -3,18 +3,20 @@ body {
 }
 
 .menu {
-  position: relative; /* Adjust this value to move the header higher */
+  position: relative;
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px; /* Adjust padding as needed */
+  padding: 10px 20px; 
   font-size: calc(10px + 2vmin);
 }
 
 .second-menu {
   background-color: #373737;
   height: 59px;
+  color: #fbf1f1;
+  text-align: center;
 }
 
 .block-headline {

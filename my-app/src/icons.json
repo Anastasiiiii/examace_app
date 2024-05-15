@@ -1,22 +1,32 @@
 {"icons": [
     {
+      "id": "0",
       "src": "/icons/night-mode.png",
       "type": "image/png"
     }, 
     {
+      "id": "1",
       "src": "/icons/book-icon.png",
       "type": "image/png"
     },
     {
+      "id": "2",
       "src": "/icons/list-icon.png",
       "type": "image/png"
     },
     {
+      "id": "3",
       "src": "/icons/search-icon.png",
       "type": "image/png"
     },
     {
+      "id": "4",
       "src": "/icons/arrow-icon.png",
+      "type": "image/png"
+    },
+    {
+      "id": "5",
+      "src": "/icons/arrow-down-icon.png",
       "type": "image/png"
     }
 ]}

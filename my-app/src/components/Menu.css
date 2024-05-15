@@ -1,15 +1,15 @@
 :root {
-  --menu-width: 110px; /* Set the width of the menu */
-  --menu-item-width: 30px; /* Set the width of one menu item */
-  --additional-distance: 3vw; /* Set additional distance as a percentage of screen width */
+  --menu-width: 110px;
+  --menu-item-width: 30px;
+  --additional-distance: 3vw;
 }
 
 .menu {
   list-style-type: none;
   padding: 0;
   margin-left: 6%;
-  margin-right: var(--menu-width); /* Use the value of the variable */
-  position: relative; /* Establish positioning context for absolute positioning */
+  margin-right: var(--menu-width);
+  position: relative;
 }
 
 .menu li {
@@ -17,11 +17,11 @@
   font-family: "Mada", sans-serif;
   font-size: medium;
   display: inline-block;
-  margin-left: var(--menu-item-width); /* Use the value of the variable */
+  margin-left: var(--menu-item-width);
 }
 
 .menu a:hover {
-  border: 1px solid #000000; /* Example border style */
+  border: 1px solid #000000;
   border-radius: 8px;
   padding: 10px 20px;
 }
@@ -31,6 +31,6 @@
   margin-left: calc(
     100vw - var(--menu-width) - (var(--menu-item-width) * 3) -
       var(--additional-distance)
-  ); /* Calculate distance from the right edge of the screen */
-  top: 20px; /* Align to the top of the menu */
+  );
+  top: 20px;
 }

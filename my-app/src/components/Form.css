@@ -1,0 +1,71 @@
+.sign-form {
+  width: 350px;
+  height: 370px;
+  border-radius: 27px;
+  background-color: rgb(255, 249, 216, 0.7);
+  margin-top: 4em;
+  margin-left: 70%;
+}
+
+.sign-form h1 {
+  color: #2c2b47;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2em;
+  text-align: center;
+  padding-top: 1em;
+}
+
+.sign-form form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.sign-form label {
+  margin-bottom: 5px;
+  color: #373737;
+  font-family: "Mada", sans-serif;
+  font-size: smaller;
+}
+
+.sign-form input {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 3px solid rgb(44, 43, 71, 0.4);
+  outline: none;
+  width: 80%;
+  background-color: transparent;
+}
+
+.sign-form input:focus {
+  border-bottom-color: #007bff;
+}
+
+.sign-up-button {
+  width: 139px;
+  height: 48px;
+  background-color: #9bd3d0;
+  border: 1px solid 373737;
+  border-radius: 13px;
+  font-family: "Mada", sans-serif;
+  color: #373737;
+  font-size: large;
+  margin-left: 20px;
+}
+
+.button-container p {
+  font-family: "Mada", sans-serif;
+  color: #373737;
+  font-size: small;
+  display: inline;
+  margin-left: 30px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
