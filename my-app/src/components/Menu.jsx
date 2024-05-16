@@ -1,5 +1,5 @@
 import React from "react";
-import "./Menu.css";
+import "../styles/Menu.css";
 
 const Menu = ({ list, img }) => {
   const menuItems = list.map((item, index) => (

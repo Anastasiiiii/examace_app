@@ -1,5 +1,5 @@
 import React from "react";
-import "./List.css";
+import "../styles/List.css";
 
 const List = ({ list }) => {
   const menuItems = list.map((item, index) => (

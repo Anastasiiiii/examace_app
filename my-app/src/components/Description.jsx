@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "./Description.css";
+import "../styles/Description.css";
 
 const Description = ({ name, text, img, button, onClickJoinButton }) => {
   return (

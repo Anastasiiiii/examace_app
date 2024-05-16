@@ -1,0 +1,38 @@
+body {
+    background-color: #fff9d8;
+  }
+  
+  .menu {
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; 
+    font-size: calc(10px + 2vmin);
+  }
+  
+  .second-menu {
+    background-color: #373737;
+    height: 59px;
+    color: #fbf1f1;
+  }
+  
+  .block-headline {
+    color: #2c2b47;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .headline-block {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+  }
+  

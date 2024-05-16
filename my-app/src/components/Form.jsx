@@ -1,40 +1,31 @@
 import React from "react";
-import "./Form.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
+import "../styles/Form.css";
 import icons from "../icons.json";
+import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
 const arrowIcon = icons.icons[4].src;
 
 const Form = () => {
+  const [showLoginForm, setShowLoginForm] = useState(false);
+  const changeToLoginForm = () => {
+    setShowLoginForm(true);
+    console.log("clicked");
+    console.log(showLoginForm);
+  };
+
+  const changeToSignupForm = () => {
+    setShowLoginForm(false);
+  };
+
   return (
     <div className="form-box">
       <div className="sign-form">
-        <h1>Sign Up</h1>
-        <form>
-          <label htmlFor="username">
-            <b>Username</b>
-          </label>
-          <input type="text" name="username" required />
-
-          <label htmlFor="email">
-            <b>Email</b>
-          </label>
-          <input type="text" name="email" required />
-
-          <label htmlFor="psw">
-            <b>Password</b>
-          </label>
-          <input type="password" name="psw" required />
-        </form>
-        <div className="button-container">
-          <button className="sign-up-button">
-            sign-up
-            <img
-              src={arrowIcon}
-              alt="Arrow"
-              style={{ verticalAlign: "middle", marginLeft: "5px" }}
-            />
-          </button>
-          <p>Have an account?</p>
-        </div>
+        {showLoginForm ? <LoginForm /> : <SignupForm />}
+        {showLoginForm && <p onClick={changeToSignupForm}>Don`t have an account?</p>}
+        {!showLoginForm && <p onClick={changeToLoginForm}>Have an account?</p>}
       </div>
     </div>
   );
