@@ -27,9 +27,9 @@ const LoginForm = () => {
           password,
         })
         .then((res) => {
-          if (res.data === "exist") {
+          if (res.data.status === "exist") {
             history("/home", { state: { id: username } });
-          } else if (res.data === "notexist") {
+          } else if (res.data.status === "doesnontexist") {
             alert("User has not signed in");
           }
         })
@@ -57,7 +57,7 @@ const LoginForm = () => {
           <input type="password" name="psw" required />
         </form>
         <div className="button-container">
-          <button type="submit" className="sign-up-button" style={{marginTop: "5%"}}>
+          <button type="submit" onClick = {handleSubmit} className="sign-up-button" style={{marginTop: "5%"}}>
             Login
             <img
               src={arrowIcon}

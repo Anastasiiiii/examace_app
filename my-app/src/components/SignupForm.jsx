@@ -7,7 +7,7 @@ import icons from "../icons.json";
 const arrowIcon = icons.icons[4].src;
 
 const SignupForm = () => {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +15,7 @@ const SignupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Submitting form...");
 
     if (!username || !email || !password) {
       setFormError(true);
@@ -22,19 +23,19 @@ const SignupForm = () => {
       return;
     }
     try {
-      await axios
-        .post("http://localhost:3001/", {
+      await axios.post("http://localhost:3001/", {
           username,
           email,
           password,
         })
         .then((res) => {
-          if (res.data === "exist") {
-            alert("User has not signed in");
-          } else if (res.data === "notexist") {
-            history("/home", { state: { id: email } });
-          }
-        })
+            if (res.data.status === "exist") {
+              alert("User has already exist");
+            } else if (res.data.status === "doesnontexist") {
+              navigate("/home", { state: { id: res.data.user.username } });
+              console.log("navigated")
+            }
+          })
         .catch((e) => {
           alert("wrong details");
           console.log(e);

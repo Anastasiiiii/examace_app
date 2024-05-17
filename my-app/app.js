@@ -10,20 +10,23 @@ app.use(cors());
 app.get("/", cors(), (req, res) => {});
 
 app.post("/", async (req, res) => {
-  const { username, email, password } = req.body;
-
-  try {
-    const check = await collection.findOne({ username: username });
-
-    if (check) {
-      res.json("exist");
-    } else {
-      res.json("notexist");
+    const { username, email, password } = req.body;
+  
+    try {
+      const existingUser = await collection.findOne({ username: username });
+  
+      if (existingUser) {
+        res.json({ status: "exist" });
+      } else {
+        const newUser = await collection.create({ username, email, password });
+        res.json({ status: "doesnontexist", user: newUser });
+      }
+    } catch (e) {
+      res.status(500).json({ status: "error", message: "Failed to create user" });
     }
-  } catch (e) {
-    res.json("notexist");
-  }
-});
+  });
+  
+
 
 app.listen(3001, ()=>{
     console.log("port connected")
