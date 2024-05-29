@@ -47,6 +47,11 @@ code {
   margin-top: 13%;
   font-family: "Mada", sans-serif;
 }
+#levels-containers {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+}
 
 .level-containers {
   display: flex;
@@ -54,7 +59,6 @@ code {
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
-  background: #9bd3d0;
   padding: 1.5rem;
   border-radius: 9px;
   width: 100px;

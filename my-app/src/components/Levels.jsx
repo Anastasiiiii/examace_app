@@ -26,30 +26,21 @@ const Levels = () => {
       .trim();
   };
 
-  const passageText = ["1", "2", "3", "4"];
-  const containersData = [
-    {
-      passage: passageText[0],
-      color: getCssVariableValue("--blue-color"),
-    },
-    {
-      passage: passageText[1],
-      color: getCssVariableValue("--pink-color"),
-    },
-    {
-      passage: passageText[2],
-      color: getCssVariableValue("--yellow-color"),
-    },
-    {
-        passage: passageText[3],
-        color: getCssVariableValue("--blue-color"),
-      },
-  ];
+  const colors = [
+    getCssVariableValue("--blue-color"),
+    getCssVariableValue("--pink-color"),
+    getCssVariableValue("--yellow-color"),
+  ]
 
+  const levelsContainersData = Array.from({ length: 24}, (_, i) => ({
+    passage: `${i + 1}`,
+    color: colors[i % colors.length],
+  }));
+    
   return (
     <div>
-      <ul id="containers">
-        {containersData.map((data, index) => (
+      <ul id="levels-containers">
+        {levelsContainersData.map((data, index) => (
           <LevelCard
             key={index}
             passage={data.passage}
