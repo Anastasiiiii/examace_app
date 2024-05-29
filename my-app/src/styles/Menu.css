@@ -13,7 +13,7 @@
 }
 
 .menu li {
-  color: #000000;
+  color: var(--text-color);
   font-family: "Mada", sans-serif;
   font-size: medium;
   display: inline-block;
@@ -21,9 +21,14 @@
 }
 
 .menu a:hover {
-  border: 1px solid #000000;
+  border: 1px solid var(--box-hover-border);
   border-radius: 8px;
   padding: 10px 20px;
+}
+
+.menu li a {
+  text-decoration: none; 
+  color: inherit; 
 }
 
 #night-mode {

@@ -1,17 +1,28 @@
 import React from "react";
 import "../styles/Menu.css";
 
-const Menu = ({ list, img }) => {
+const Menu = ({ list, onNavigate }) => {
   const menuItems = list.map((item, index) => (
     <li key={index}>
-      <a>{item}</a>
+      <a
+        onClick={() =>
+          onNavigate(
+            item === "Test"
+              ? "/test"
+              : item === "Home"
+              ? "/home"
+              : `/${item.toLowerCase()}`
+          )
+        }
+      >
+        {item}
+      </a>
     </li>
   ));
 
   return (
     <div>
       <ul className="menu">{menuItems}</ul>
-      <img id="night-mode" src={img} />
     </div>
   );
 };

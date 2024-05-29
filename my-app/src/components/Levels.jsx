@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Cards from "./Cards";
-import text from "../text.json";
+import LevelCard from "./LevelCard";
 import "../styles/Formulas.css";
 
-const passageText = text.text[3].text;
-
-const Containers = () => {
+const Levels = () => {
   const [theme, setTheme] = useState(
     document.documentElement.getAttribute("data-theme")
   );
@@ -29,40 +26,32 @@ const Containers = () => {
       .trim();
   };
 
-  const bookIcon = "/icons/book-icon.png";
-  const listIcon = "/icons/list-icon.png";
-  const searchIcon = "/icons/search-icon.png";
-  const arrowIcon = "/icons/arrow-icon.png";
-
+  const passageText = ["1", "2", "3", "4"];
   const containersData = [
     {
-      icon: bookIcon,
-      icon2: arrowIcon,
-      passage: passageText,
+      passage: passageText[0],
       color: getCssVariableValue("--blue-color"),
     },
     {
-      icon: listIcon,
-      icon2: arrowIcon,
-      passage: passageText,
+      passage: passageText[1],
       color: getCssVariableValue("--pink-color"),
     },
     {
-      icon: searchIcon,
-      icon2: arrowIcon,
-      passage: passageText,
+      passage: passageText[2],
       color: getCssVariableValue("--yellow-color"),
     },
+    {
+        passage: passageText[3],
+        color: getCssVariableValue("--blue-color"),
+      },
   ];
 
   return (
     <div>
       <ul id="containers">
         {containersData.map((data, index) => (
-          <Cards
+          <LevelCard
             key={index}
-            icon={data.icon}
-            icon2={data.icon2}
             passage={data.passage}
             color={data.color}
           />
@@ -72,4 +61,4 @@ const Containers = () => {
   );
 };
 
-export default Containers;
+export default Levels;

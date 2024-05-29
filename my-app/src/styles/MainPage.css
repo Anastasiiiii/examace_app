@@ -1,5 +1,5 @@
 body {
-    background-color: #fff9d8;
+    background-color: var(--background-color);
   }
   
   .menu {
@@ -13,13 +13,13 @@ body {
   }
   
   .second-menu {
-    background-color: #373737;
+    background-color: var(--menu-container-color);
     height: 59px;
-    color: #fbf1f1;
+    color: var(--menu-text-color);
   }
   
   .block-headline {
-    color: #2c2b47;
+    color: var(--title-color);
     font-family: "Madimi One", sans-serif;
     font-weight: 400;
     font-style: normal;

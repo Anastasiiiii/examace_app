@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import useLocalStorage from "../elements/useLocalStorage.js";
 import "../styles/MainPage.css";
+import "../styles/Formulas.css";
 import Menu from "../components/Menu.jsx";
 import Description from "../components/Description.jsx";
 import List from "../components/List.jsx";
 import Containers from "../components/Containers.jsx";
 import FormContainer from "../components/FormContainer.jsx";
-import imgHeader from "../img_header.png";
+import imgHeaderLight from "../img_header.png";
+import imgHeaderDark from "../img_header_dark_mode.png";
 import text from "../text.json";
 import icons from "../icons.json";
 
@@ -15,28 +16,39 @@ const textDescription = text.text[0].text;
 const appName = text.text[1].text;
 const joinUsText = text.text[2].text;
 
-const nightModeIcon = icons.icons[0].src;
 const arrowIcon = icons.icons[4].src;
 const arrowDownIcon = icons.icons[5].src;
 
 function MainPage() {
   const [formBox, setFormBox] = useState(false);
-  const menuList = ["Home", "Information", "Contact"];
+  const [isDarkMode, setIsDarkMode] = useLocalStorage(false);
 
   const toggleFormBox = () => {
     setFormBox(!formBox);
   };
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  }, [isDarkMode]);
+
+  const menuList = ["Home", "Information", "Contact"];
   const secondMenuList = [
     "Use of English",
     "Reading",
     "Vocabulary",
     "Grammar",
     "Test",
-    "Library"
+    "Library",
   ];
-  const description = textDescription;
-  const name = appName;
+
   const joinUs = (
     <span>
       {joinUsText}
@@ -47,19 +59,21 @@ function MainPage() {
       />
     </span>
   );
-
-  const nightModeIconSrc = nightModeIcon;
+  const headerImage = isDarkMode ? imgHeaderDark : imgHeaderLight;
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: "var(--background-color)" }}>
       <menu className="menu">
-        <Menu list={menuList} img={nightModeIconSrc} />
+        <Menu list={menuList} />
+        <button className="mode-button" onClick={toggleDarkMode}>
+          Dark mode
+        </button>
       </menu>
       <header className="App-header">
         <Description
-          name={name}
-          text={description}
-          img={imgHeader}
+          name={appName}
+          text={textDescription}
+          img={headerImage}
           button={joinUs}
           onClickJoinButton={toggleFormBox}
         />
@@ -80,7 +94,10 @@ function MainPage() {
       <div className="App">
         <Containers />
       </div>
-      <div className="second-menu" style={{ paddingTop: "20px", paddingLeft: "45%" }}>
+      <div
+        className="second-menu"
+        style={{ paddingTop: "20px", paddingLeft: "45%" }}
+      >
         @anastasiii
       </div>
     </div>

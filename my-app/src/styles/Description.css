@@ -4,7 +4,7 @@
 }
 
 .name {
-  color: #2c2b47;
+  color: var(--title-color);
   font-family: "Madimi One", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -18,7 +18,7 @@
 }
 
 .text {
-  color: black;
+  color: var(--text-color);
   text-align: justify;
   font-family: "Mada", sans-serif;
   width: 40%;
@@ -32,7 +32,7 @@
 .join-button {
   width: 142px;
   height: 51px;
-  background-color: #fec447;
+  background-color: var(--button-color);
   border: solid 1 black;
   border-radius: 13px;
   color: black;

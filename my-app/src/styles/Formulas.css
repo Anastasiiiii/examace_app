@@ -1,0 +1,35 @@
+:root {
+    --background-color: #FFF9D8;
+    --text-color: #000000;
+    --title-color: #2C2B47;
+    --menu-text-color: #fbf1f1;
+    --yellow-color: #FEC447;
+    --pink-color: #FECCB5;
+    --blue-color: #9BD3D0;
+    --button-color: #FEC447;
+    --box-hover-border: #1a1c1a;
+    --box-container-hover-shadow: #1a1c1a; 
+    --menu-container-color: #373737;
+    --button-background-color: #fbeee0;
+    --button-border-shadow-color: #422800;
+}
+
+[data-theme="dark"] {
+    --background-color: #141425;
+    --text-color: #FFFCFC;
+    --title-color: #FEC447;
+    --menu-text-color: #FFFCFC;
+    --yellow-color: #D9E826;
+    --pink-color: #FF47D6;
+    --blue-color: #00C0B5;
+    --button-color: #FEC447;
+    --box-hover-border: #FFFCFC;
+    --box-container-hover-shadow: #2C2B47; 
+    --menu-container-color: #2C2B47;
+    --button-background-color: #00C0B5;
+    --button-border-shadow-color: #2C2B47;
+}
+
+body {
+    background-color: var(--background-color);
+}

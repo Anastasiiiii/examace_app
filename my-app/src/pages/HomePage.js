@@ -1,26 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/MainPage.css";
 import Menu from "../components/Menu.jsx";
 import Description from "../components/Description.jsx";
-//import Carousel from "../components/Carousel.jsx";
+import useLocalStorage from "../elements/useLocalStorage.js";
 import List from "../components/List.jsx";
 import text from "../text.json";
-import imgHeader from "../img_header.png";
-import icons from "../icons.json";
+import imgHeaderLight from "../img_header.png";
+import imgHeaderDark from "../img_header_dark_mode.png";
 
 const textDescription = text.text[0].text;
 const buttonName = text.text[4].text;
-const nightModeIcon = icons.icons[0].src;
-
 
 const HomePage = () => {
+  const [isDarkMode, setIsDarkMode] = useLocalStorage(false);
   const location = useLocation();
+  const navigate = useNavigate(); 
   const description = textDescription;
   const trialExam = buttonName;
-  const name = location.state.id;
-  const nightModeIconSrc = nightModeIcon;
-  const menuList = ["Home", "Information", "Contact"];
+  const currentUser = location.state?.id
+    ? { id: location.state.id }
+    : JSON.parse(localStorage.getItem("currentUser")) || { id: "Guest" };
+
+  useEffect(() => {
+    if (currentUser.id !== "Guest") {
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    }
+  }, [currentUser]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  }, [isDarkMode]);
+
+  const menuList = ["Home", "Information", "Contact", "Test"];
   const secondMenuList = [
     "Use of English",
     "Reading",
@@ -30,20 +50,32 @@ const HomePage = () => {
     "Library",
   ];
 
+  const headerImage = isDarkMode ? imgHeaderDark : imgHeaderLight;
+
+  const handleNavigate = (path) => {
+    navigate(path, { state: { id: currentUser.id } });
+  };
+
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: "var(--background-color)" }}>
       <menu className="menu">
-        <Menu list={menuList} img={nightModeIconSrc} />
+        <Menu list={menuList} onNavigate={handleNavigate} />
+        <button className="mode-button" onClick={toggleDarkMode}>
+          Dark mode
+        </button>
       </menu>
       <header className="App-header">
-        <Description name={"Hello, " + name + "!"} text={description} img={imgHeader} button={trialExam} />
+        <Description
+          name={"Hello, " + currentUser.id + "!"}
+          text={description}
+          img={headerImage}
+          button={trialExam}
+        />
       </header>
       <div className="second-menu">
         <List list={secondMenuList} />
       </div>
-      <div>
-        
-      </div>
+      <div></div>
     </div>
   );
 };

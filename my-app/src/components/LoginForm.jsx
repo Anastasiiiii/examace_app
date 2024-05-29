@@ -1,13 +1,12 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/Form.css";
 import icons from "../icons.json";
 const arrowIcon = icons.icons[4].src;
 
-const LoginForm = () => { 
-  const history = useNavigate();
+const LoginForm = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [formError, setFormError] = useState(false);
@@ -17,47 +16,49 @@ const LoginForm = () => {
 
     if (!username || !password) {
       setFormError(true);
-      alert("There is no data");
+      alert("Please fill in all fields");
       return;
     }
+
     try {
-      await axios
-        .post("http://localhost:3001/", {
-          username,
-          password,
-        })
-        .then((res) => {
-          if (res.data.status === "exist") {
-            history("/home", { state: { id: username } });
-          } else if (res.data.status === "doesnontexist") {
-            alert("User has not signed in");
-          }
-        })
-        .catch((e) => {
-          alert("wrong details");
-          console.log(e);
-        });
-    } catch (e) {
-      console.log(e);
+      const res = await axios.post("http://localhost:3001/", { username, password });
+      if (res.data.status === "exist") {
+        navigate("/home", { state: { id: username } });
+      } else if (res.data.status === "doesnotexist") {
+        alert("User does not exist");
+      }
+    } catch (error) {
+      alert("Wrong details");
+      console.error(error);
     }
-  }
+  };
 
   return (
     <div>
-        <h1>Login</h1>
-        <form>
-          <label htmlFor="username">
-            <b>Username</b>
-          </label>
-          <input type="text" name="username" required />
-
-          <label htmlFor="psw" style={{marginTop: "10%"}}>
-            <b>Password</b>
-          </label>
-          <input type="password" name="psw" required />
-        </form>
-        <div className="button-container">
-          <button type="submit" onClick = {handleSubmit} className="sign-up-button" style={{marginTop: "5%"}}>
+      <h1>Login</h1>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">
+          <b>Username</b>
+        </label>
+        <input
+          type="text"
+          name="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <label htmlFor="password" style={{ marginTop: "10%" }}>
+          <b>Password</b>
+        </label>
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <div className="button-container" style={{ marginTop: "5%" }}>
+          <button type="submit" className="sign-up-button">
             Login
             <img
               src={arrowIcon}
@@ -65,8 +66,8 @@ const LoginForm = () => {
               style={{ verticalAlign: "middle", marginLeft: "5px" }}
             />
           </button>
-          
         </div>
+      </form>
     </div>
   );
 };
