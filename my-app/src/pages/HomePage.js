@@ -6,8 +6,8 @@ import Description from "../components/Description.jsx";
 import useLocalStorage from "../elements/useLocalStorage.js";
 import List from "../components/List.jsx";
 import text from "../text.json";
-import imgHeaderLight from "../img_header.png";
-import imgHeaderDark from "../img_header_dark_mode.png";
+import imgHeaderLight from "../assets/img_header.png";
+import imgHeaderDark from "../assets/img_header_dark_mode.png";
 
 const textDescription = text.text[0].text;
 const buttonName = text.text[4].text;

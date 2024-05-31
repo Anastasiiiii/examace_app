@@ -5,17 +5,23 @@ import "../styles/MainPage.css";
 import "../styles/Formulas.css";
 import Menu from "../components/Menu.jsx";
 import Levels from "../components/Levels.jsx";
+import ExamCard from "../components/ExamCard.jsx";
 
 const TestPage = () => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("currentUser")) || { id: "Guest" }
   );
   const [isDarkMode, setIsDarkMode] = useLocalStorage(false);
+  const [taskBox, setTaskBox] = useState(false);
   const navigate = useNavigate();
   const menuList = ["Home", "Information", "Contact", "Test"];
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
+  };
+
+  const toggleTaskBox = () => {
+    setTaskBox(!taskBox);
   };
 
   useEffect(() => {
@@ -41,7 +47,13 @@ const TestPage = () => {
       <div>
         <h1 className="main-headline">Test:</h1>
         <div>
-            <Levels />
+            <Levels onClick={toggleTaskBox} />
+            {taskBox && (
+                <div className="exam-card-levels">
+                  <ExamCard onClick={toggleTaskBox} />
+                </div>
+             )}
+            
         </div>
       </div>
     </div>

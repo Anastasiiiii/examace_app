@@ -7,8 +7,8 @@ import Description from "../components/Description.jsx";
 import List from "../components/List.jsx";
 import Containers from "../components/Containers.jsx";
 import FormContainer from "../components/FormContainer.jsx";
-import imgHeaderLight from "../img_header.png";
-import imgHeaderDark from "../img_header_dark_mode.png";
+import imgHeaderLight from "../assets/img_header.png";
+import imgHeaderDark from "../assets/img_header_dark_mode.png";
 import text from "../text.json";
 import icons from "../icons.json";
 

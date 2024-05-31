@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const LevelCard = ({ passage, color }) => {
+const LevelCard = ({ passage, color, onClick }) => {
   return (
-    <div className="level-containers" style={{ backgroundColor: color }}>
+    <div className="level-containers" style={{ backgroundColor: color }} onClick={onClick} >
       <div className="level-passage">{passage}</div>
     </div>
   );

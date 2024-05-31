@@ -20,7 +20,11 @@ const newSchema =new mongoose.Schema({
     password: {
         type:String,
         required:true
+    },
+    mark: [{
+        mark: Number,
     }
+    ]
 })
 
 const collection = mongoose.model("collection", newSchema)

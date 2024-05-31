@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LevelCard from "./LevelCard";
 import "../styles/Formulas.css";
 
-const Levels = () => {
+const Levels = ({ onClick }) => {
   const [theme, setTheme] = useState(
     document.documentElement.getAttribute("data-theme")
   );
@@ -45,6 +45,7 @@ const Levels = () => {
             key={index}
             passage={data.passage}
             color={data.color}
+            onClick={onClick}
           />
         ))}
       </ul>

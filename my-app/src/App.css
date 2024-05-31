@@ -25,6 +25,7 @@ body {
   font-style: normal;
   font-size: 3em;
   margin-left: 150px;
+  margin-top: 30px;
 }
 .block-headline {
   color: var(--title-color);
@@ -77,4 +78,12 @@ body {
     min-width: 70px;
     padding: 0 25px;
   }
+}
+
+.exam-card-levels {
+  position: absolute;
+  top: 50%; /* Розмістити по вертикалі на 50% */
+  left: 50%; /* Розмістити по горизонталі на 50% */
+  transform: translate(-55%, -50%);
+  margin-top: 150px;
 }

@@ -12,6 +12,7 @@
     --menu-container-color: #373737;
     --button-background-color: #fbeee0;
     --button-border-shadow-color: #422800;
+    --quiz-background-color: rgba(254, 204, 181, 0.8);
 }
 
 [data-theme="dark"] {
@@ -28,6 +29,7 @@
     --menu-container-color: #2C2B47;
     --button-background-color: #00C0B5;
     --button-border-shadow-color: #2C2B47;
+    --quiz-background-color: rgba(255, 255, 255, 0.9);
 }
 
 body {

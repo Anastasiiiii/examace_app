@@ -3,10 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/Form.css";
-import icons from "../icons.json";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
-const arrowIcon = icons.icons[4].src;
 
 const Form = () => {
   const [showLoginForm, setShowLoginForm] = useState(false);
