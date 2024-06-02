@@ -1,0 +1,144 @@
+.centered-flex {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-card-front {
+  background-image: linear-gradient(
+      var(--flip-card-background),
+      var(--flip-card-background)
+    ),
+    url("../assets/flip.jpg");
+  color: var(--box-container-hover-shadow);
+  text-align: justify;
+  font-family: "Mada", sans-serif;
+  display: grid;
+  place-items: center;
+}
+
+.flip-card-front p {
+  font-size: 2rem;
+  font-weight: 700;
+  width: 110%;
+  font-family: "Mada", sans-serif;
+  font-style: normal;
+  background: var(--yellow-color);
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background-color: var(--button-border-shadow-color);
+  color: var(--text-color);
+}
+
+.custom-box {
+  width: 300px;
+  height: 400px;
+  border: 1px solid var(--background-color);
+}
+
+.div-container-class {
+  background-size: cover;
+  border-width: 1px;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.h1-class {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Madimi One", sans-serif;
+  font-style: normal;
+  padding: 20px;
+  text-decoration: underline;
+}
+.flip-card-back p {
+  text-align: justify;
+  font-family: "Mada", sans-serif;
+  padding: 20px;
+}
+
+.adding-a-new-word {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  margin-left: 140px;
+}
+.form-field {
+  width: 300px;
+  height: 30px;
+  text-align: justify;
+  font-family: "Mada", sans-serif;
+  border: 0;
+  border-bottom: 2px solid var(--yellow-color);
+  outline: 0;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  padding: 7px 0px;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: var(--menu-container-color);
+  }
+
+  &:placeholder-shown ~ .form-label {
+    font-size: 1.2rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form-field:focus {
+  padding-bottom: 6px;
+  font-weight: 500;
+  border-width: 3px;
+  border-image: linear-gradient(
+    to right,
+    var(--pink-color),
+    var(--second-chart-line-stroke)
+  );
+  border-image-slice: 1;
+}
+
+.form-field {
+  &:required,
+  &:invalid {
+    box-shadow: none;
+  }
+}
+
+.adding-a-new-word button {
+  width: 150px;
+  height: 40px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: var(--yellow-color);
+  border: none;
+  box-shadow: 4px 3px var(--button-border-shadow-color);
+}

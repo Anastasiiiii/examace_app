@@ -7,6 +7,7 @@ import Menu from "../components/Menu.jsx";
 import Levels from "../components/Levels.jsx";
 import ExamCard from "../components/ExamCard.jsx";
 
+
 const TestPage = () => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("currentUser")) || { id: "Guest" }
@@ -14,7 +15,7 @@ const TestPage = () => {
   const [isDarkMode, setIsDarkMode] = useLocalStorage(false);
   const [taskBox, setTaskBox] = useState(false);
   const navigate = useNavigate();
-  const menuList = ["Home", "Information", "Contact", "Test"];
+  const menuList = ["Home", "Cards", "Reading", "Test"];
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -22,6 +23,8 @@ const TestPage = () => {
 
   const toggleTaskBox = () => {
     setTaskBox(!taskBox);
+    console.log(localStorage)
+    console.log(currentUser.id)
   };
 
   useEffect(() => {

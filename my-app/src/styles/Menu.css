@@ -19,6 +19,7 @@
   font-size: medium;
   display: inline-block;
   margin-left: var(--menu-item-width);
+  cursor: pointer;
 }
 
 .menu a:hover {

@@ -33,5 +33,10 @@
       "id": "6",
       "src": "/icons/close.png",
       "type": "image/png"
+    },
+    {
+      "id": "7",
+      "src": "/icons/upload-file.png",
+      "type": "image/png"
     }
 ]}

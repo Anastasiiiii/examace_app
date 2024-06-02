@@ -1,38 +1,45 @@
 body {
-    background-color: var(--background-color);
-  }
-  
-  .menu {
-    position: relative;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px; 
-    font-size: calc(10px + 2vmin);
-  }
-  
-  .second-menu {
-    background-color: var(--menu-container-color);
-    height: 59px;
-    color: var(--menu-text-color);
-  }
-  
-  .block-headline {
-    color: var(--title-color);
-    font-family: "Madimi One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 3em;
-    text-align: center;
-    margin-bottom: 20px;
-    max-width: 600px;
-    margin: auto;
-  }
-  
-  .headline-block {
-    display: flex;
-    align-items: center;
-    margin-top: 50px;
-  }
-  
+  background-color: var(--background-color);
+}
+
+.menu {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: calc(10px + 2vmin);
+}
+
+.second-menu {
+  background-color: var(--menu-container-color);
+  height: 59px;
+  color: var(--menu-text-color);
+}
+
+.block-headline {
+  color: var(--title-color);
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.headline-block {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.flip-cards-container {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 200px;
+  margin-left: 200px;
+}
+

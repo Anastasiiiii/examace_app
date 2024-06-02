@@ -10,6 +10,8 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [formError, setFormError] = useState(false);
+  const [admin, setAdmin] = useState("");
+  const [adminPassword, setAdminPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,12 +23,19 @@ const LoginForm = () => {
     }
 
     try {
+      const adminRes = await axios.get(`http://localhost:3001/getUsers/admin`);
+      const adminData = adminRes.data;
+      setAdmin(adminData.username);
+      setAdminPassword(adminData.password);
+
       const res = await axios.post("http://localhost:3001/", { username, password });
-      if (res.data.status === "exist") {
+      if (username !== "admin" && password !== "admin" && res.data.status === "exist") {
         navigate("/home", { state: { id: username } });
+      } else if (username === "admin" && password === "admin") {
+        navigate("/admin", { state: { admin } });
       } else if (res.data.status === "doesnotexist") {
         alert("User does not exist");
-      }
+      } 
     } catch (error) {
       alert("Wrong details");
       console.error(error);

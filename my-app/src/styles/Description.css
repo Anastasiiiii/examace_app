@@ -35,10 +35,11 @@
   background-color: var(--button-color);
   border: solid 1 black;
   border-radius: 13px;
-  color: black;
-  font-family: "Mada", sans-serif;
+  color: rgb(40, 37, 37);
+  font-family: "Madimi One", sans-serif;
+  font-weight: 300;
   font-size: 24px;
-  box-shadow: 4px 3px #1a1c1a;
+  box-shadow: 4px 3px var(--button-border-shadow-color);
   cursor: pointer;
 }
 .button-div {

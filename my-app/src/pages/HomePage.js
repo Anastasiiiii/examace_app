@@ -8,6 +8,7 @@ import List from "../components/List.jsx";
 import text from "../text.json";
 import imgHeaderLight from "../assets/img_header.png";
 import imgHeaderDark from "../assets/img_header_dark_mode.png";
+import GridChart from "../components/GridChart.jsx";
 
 const textDescription = text.text[0].text;
 const buttonName = text.text[4].text;
@@ -18,6 +19,7 @@ const HomePage = () => {
   const navigate = useNavigate(); 
   const description = textDescription;
   const trialExam = buttonName;
+  const title = "Your results:";
   const currentUser = location.state?.id
     ? { id: location.state.id }
     : JSON.parse(localStorage.getItem("currentUser")) || { id: "Guest" };
@@ -40,7 +42,7 @@ const HomePage = () => {
     }
   }, [isDarkMode]);
 
-  const menuList = ["Home", "Information", "Contact", "Test"];
+  const menuList = ["Home", "Cards", "Reading", "Test"];
   const secondMenuList = [
     "Use of English",
     "Reading",
@@ -75,7 +77,9 @@ const HomePage = () => {
       <div className="second-menu">
         <List list={secondMenuList} />
       </div>
-      <div></div>
+      <div>
+        <GridChart title = {title}/>
+      </div>
     </div>
   );
 };

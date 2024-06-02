@@ -11,7 +11,10 @@ const Menu = ({ list, onNavigate }) => {
               ? "/test"
               : item === "Home"
               ? "/home"
-              : `/${item.toLowerCase()}`
+              : item === "ReadingPage"
+              ? "/reading" 
+              : item === "CardsPage" 
+              ? "/cards" : `/${item.toLowerCase()}`
           )
         }
       >

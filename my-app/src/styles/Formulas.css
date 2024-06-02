@@ -13,6 +13,11 @@
     --button-background-color: #fbeee0;
     --button-border-shadow-color: #422800;
     --quiz-background-color: rgba(254, 204, 181, 0.8);
+    --first-chart-line: #C3DCEE;
+    --second-chart-line: #FFCAA3;
+    --first-chart-line-stroke: #80accc;
+    --second-chart-line-stroke: #e7ab7f;
+    --flip-card-background: rgba(254, 196, 71, 0.4);
 }
 
 [data-theme="dark"] {
@@ -30,6 +35,11 @@
     --button-background-color: #00C0B5;
     --button-border-shadow-color: #2C2B47;
     --quiz-background-color: rgba(255, 255, 255, 0.9);
+    --first-chart-line: #6E8EFF;
+    --second-chart-line: #FF77E1;
+    --first-chart-line-stroke: #4055a2;
+    --second-chart-line-stroke: #b74ca0;
+    --flip-card-background: rgba(217, 232, 38, 0.4);
 }
 
 body {

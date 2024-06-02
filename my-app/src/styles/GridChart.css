@@ -1,0 +1,20 @@
+.chart-grid {
+  position: relative;
+  align-content: center;
+  background-color: var(--menu-container-color);
+  width: 1050px;
+  height: 500px;
+  border-radius: 8px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: 260px;
+}
+.chart-grid h1 {
+  color: var(--menu-text-color);
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3em;
+  text-align: center;
+  padding: 30px;
+}
