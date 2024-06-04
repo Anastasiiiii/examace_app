@@ -12,9 +12,14 @@ const Menu = ({ list, onNavigate }) => {
               : item === "Home"
               ? "/home"
               : item === "ReadingPage"
-              ? "/reading" 
-              : item === "CardsPage" 
-              ? "/cards" : `/${item.toLowerCase()}`
+              ? "/reading"
+              : item === "CardsPage"
+              ? "/cards"
+              : item === "InfoPage"
+              ? "/info"
+              : item === "ContactPage"
+              ? "/contact"
+              : `/${item.toLowerCase()}`
           )
         }
       >

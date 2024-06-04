@@ -38,5 +38,10 @@
       "id": "7",
       "src": "/icons/upload-file.png",
       "type": "image/png"
+    },
+    {
+      "id": "8",
+      "src": "/icons/trash-can.png",
+      "type": "image/png"
     }
 ]}

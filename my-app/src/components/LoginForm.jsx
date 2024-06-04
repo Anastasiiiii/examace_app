@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/Form.css";
-import icons from "../icons.json";
+import icons from "../JsonFiles/icons.json";
 const arrowIcon = icons.icons[4].src;
 
 const LoginForm = () => {
@@ -28,14 +28,21 @@ const LoginForm = () => {
       setAdmin(adminData.username);
       setAdminPassword(adminData.password);
 
-      const res = await axios.post("http://localhost:3001/", { username, password });
-      if (username !== "admin" && password !== "admin" && res.data.status === "exist") {
+      const res = await axios.post("http://localhost:3001/", {
+        username,
+        password,
+      });
+      if (
+        username !== "admin" &&
+        password !== "admin" &&
+        res.data.status === "exist"
+      ) {
         navigate("/home", { state: { id: username } });
       } else if (username === "admin" && password === "admin") {
         navigate("/admin", { state: { admin } });
       } else if (res.data.status === "doesnotexist") {
         alert("User does not exist");
-      } 
+      }
     } catch (error) {
       alert("Wrong details");
       console.error(error);

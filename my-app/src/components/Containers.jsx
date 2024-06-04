@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Cards from "./Cards";
-import text from "../text.json";
+import text from "../JsonFiles/text.json";
 import "../styles/Formulas.css";
 
 const passageText = text.text[3].text;

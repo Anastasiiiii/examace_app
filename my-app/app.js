@@ -1,13 +1,16 @@
 const express = require("express");
-const collection = require("./mongo");
 const cors = require("cors");
 const path = require("node:path");
 const app = express();
 const fs = require("fs");
-const MarksModel = require("./Marks");
-const WordsModel = require("./Words");
+const UsersModel = require("./mongo");
+const MarksModel = require("./Schemas/Marks");
+const WordsModel = require("./Schemas/Words");
 const { data1, data2, data3 } = require("./src/elements/data");
 const multer = require("multer");
+const task1 = "./tasks/task1.txt";
+const task2 = "./tasks/task2.txt";
+const task3 = "./tasks/task3.txt";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -34,12 +37,12 @@ app.post("/", async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
-    const existingUser = await collection.findOne({ username: username });
+    const existingUser = await UsersModel.findOne({ username: username });
 
     if (existingUser) {
       res.json({ status: "exist" });
     } else {
-      const newUser = await collection.create({ username, email, password });
+      const newUser = await UsersModel.create({ username, email, password });
       res.json({ status: "doesnontexist", user: newUser });
     }
   } catch (e) {
@@ -48,7 +51,7 @@ app.post("/", async (req, res) => {
 });
 
 app.get("/getUsers", (req, res) => {
-  collection
+  UsersModel
     .find()
     .then((users) => {
       res.json(users);
@@ -65,7 +68,7 @@ app.get("/getUsers", (req, res) => {
 
 app.get("/getUsers/:username", (req, res) => {
   const { username } = req.params;
-  collection
+  UsersModel
     .findOne({ username: username })
     .then((user) => {
       if (user) {
@@ -85,7 +88,7 @@ app.get("/getUsers/:username", (req, res) => {
 });
 
 let fileData = " ";
-let filePath = ["task1.txt", "task2.txt", "task3.txt"];
+let filePath = [task1, task2, task3];
 
 const getFilePath = () => {
   const index = Math.floor(Math.random() * filePath.length);
@@ -112,11 +115,11 @@ app.get("/readFile", (req, res) => {
     console.log(data);
   });
   let responseInfo;
-  if (filePathToRead === "task1.txt") {
+  if (filePathToRead == task1) {
     responseInfo = { text: fileData, answers: data1 };
-  } else if (filePathToRead == "task2.txt") {
+  } else if (filePathToRead == task2) {
     responseInfo = { text: fileData, answers: data2 };
-  } else if (filePathToRead === "task3.txt") {
+  } else if (filePathToRead == task3) {
     responseInfo = { text: fileData, answers: data3 };
   }
   res.send(responseInfo);
@@ -154,7 +157,7 @@ app.post("/addMarks", async (req, res) => {
   }
 
   try {
-    const signedUser = await collection.findOne({ username: username });
+    const signedUser = await UsersModel.findOne({ username: username });
     if (!signedUser) {
       return res
         .status(404)
@@ -202,8 +205,6 @@ app.post("/api/upload", upload.single("task"), (req, res) => {
   res.json(req.file);
 });
 
-
-
 app.post("/addWords", async (req, res) => {
   const { username, word, definition } = req.body;
   if (!username || !word || !definition === undefined) {
@@ -214,7 +215,7 @@ app.post("/addWords", async (req, res) => {
   }
 
   try {
-    const signedUser = await collection.findOne({ username: username });
+    const signedUser = await UsersModel.findOne({ username: username });
     if (!signedUser) {
       return res
         .status(404)
@@ -254,6 +255,38 @@ app.get("/getWords", (req, res) => {
     .catch((err) => res.json(err));
 });
 
+app.get("/getWords/:username", async (req, res) => {
+  const { username } = req.params;
+
+  try {
+    const existingUser = await WordsModel.findOne({ username: username });
+
+    if (!existingUser) {
+      return res
+        .status(404)
+        .json({ status: "error", message: "User not found" });
+    }
+    if (
+      !existingUser.words ||
+      !existingUser.definitions ||
+      existingUser.words.length === 0
+    ) {
+      return res
+        .status(404)
+        .json({ status: "error", message: "No words found for this user" });
+    }
+    const theWord = existingUser.words;
+    const theDefinition = existingUser.definitions;
+    res.json({ words: theWord, definitions: theDefinition });
+  } catch (e) {
+    return res.status(500).json({
+      status: "error",
+      message: "Failed to process request",
+      error: e.message,
+    });
+  }
+});
+
 app.get("/getRandomWord/:username", async (req, res) => {
   const { username } = req.params;
 
@@ -265,13 +298,61 @@ app.get("/getRandomWord/:username", async (req, res) => {
         .status(404)
         .json({ status: "error", message: "User not found" });
     }
-    if (!existingUser.words || !existingUser.definitions || existingUser.words.length === 0) {
-      return res.status(404).json({ status: "error", message: "No words found for this user" });
+    if (
+      !existingUser.words ||
+      !existingUser.definitions ||
+      existingUser.words.length === 0
+    ) {
+      return res
+        .status(404)
+        .json({ status: "error", message: "No words found for this user" });
     }
     const index = Math.floor(Math.random() * existingUser.words.length);
     const theWord = existingUser.words[index];
     const theDefinition = existingUser.definitions[index];
     res.json({ word: theWord, definition: theDefinition });
+  } catch (e) {
+    return res.status(500).json({
+      status: "error",
+      message: "Failed to process request",
+      error: e.message,
+    });
+  }
+});
+
+app.delete("/deleteTheWord", async (req, res) => {
+  const { username, word } = req.body;
+  if (!username || word === undefined) {
+    return res.status(400).json({
+      status: "error",
+      message: "Username and word are required",
+    });
+  }
+
+  try {
+    const signedUser = await users.findOne({ username: username });
+    if (!signedUser) {
+      return res
+        .status(404)
+        .json({ status: "error", message: "User not found" });
+    }
+
+    const existingUser = await WordsModel.findOne({ username: username });
+    if (existingUser) {
+      const index = existingUser.words.indexOf(word);
+      existingUser.words.splice(index, 1);
+      existingUser.definitions.splice(index, 1);
+      await existingUser.save();
+      return res.json({
+        status: "deleted",
+        message: "Word has been deleted",
+        user: existingUser,
+      });
+    } else {
+      return res
+        .status(404)
+        .json({ status: "error", message: "User dosn`t have such a word" });
+    }
   } catch (e) {
     return res.status(500).json({
       status: "error",

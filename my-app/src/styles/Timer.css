@@ -1,0 +1,6 @@
+.timer{
+    background: transparent;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+}

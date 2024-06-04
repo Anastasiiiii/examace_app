@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/Form.css";
-import icons from "../icons.json";
+import icons from "../JsonFiles/icons.json";
 const arrowIcon = icons.icons[4].src;
 
 const SignupForm = () => {

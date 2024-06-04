@@ -3,6 +3,9 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import "../styles/CardsFlip.css";
 import "../styles/Formulas.css";
+import icons from "../JsonFiles/icons.json";
+
+const arrowIcon = icons.icons[4].src;
 
 const CardsFlip = () => {
   const [flipped, setFlipped] = useState(false);
@@ -46,7 +49,10 @@ const CardsFlip = () => {
           onAnimationComplete={() => setAnimated(false)}
         >
           <div className="flip-card-front div-container-class">
-            <p>{word}</p>
+            <p>
+              {word}
+              <img src={arrowIcon} onClick={getData} />
+            </p>
           </div>
           <div className="flip-card-back div-container-class">
             <h1 className="h1-class">Definition</h1>

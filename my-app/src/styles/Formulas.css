@@ -18,6 +18,9 @@
     --first-chart-line-stroke: #80accc;
     --second-chart-line-stroke: #e7ab7f;
     --flip-card-background: rgba(254, 196, 71, 0.4);
+    --table-color-first: #fde4d2;
+    --table-color-second: #f8d7c0;
+    --table-text-color: #0d0c24;
 }
 
 [data-theme="dark"] {
@@ -40,6 +43,9 @@
     --first-chart-line-stroke: #4055a2;
     --second-chart-line-stroke: #b74ca0;
     --flip-card-background: rgba(217, 232, 38, 0.4);
+    --table-color-first: #a6b7f4;
+    --table-color-second: #96ace1;
+    --table-text-color: #0d0c24;
 }
 
 body {

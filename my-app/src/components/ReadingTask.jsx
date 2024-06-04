@@ -1,8 +1,8 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
-import "../styles/ReadingTask.css"
-import "../styles/Formulas.css"
+import "../styles/ReadingTask.css";
+import "../styles/Formulas.css";
 
 const ReadingTask = () => {
   const [file, setFile] = useState(null);
@@ -19,17 +19,22 @@ const ReadingTask = () => {
       console.error("Error getting the file: ", err);
     }
   };
+ 
   //const name = file.split('.');
   //const newName = name.slice(0, -1).join('.');
-  return (<div className="info-container">
-     <button className="postText" onClick={getReadingText}>Get an article</button>
+  return (
+    <div className="info-container">
+      <button className="postText" onClick={getReadingText}>
+        Get an article
+      </button>
       {file && (
         <div className="reading-box">
           <h3>{file}</h3>
-          <p>{text}</p>
+            <p>{text}</p>
         </div>
       )}
-  </div>);
+    </div>
+  );
 };
 
 export default ReadingTask;

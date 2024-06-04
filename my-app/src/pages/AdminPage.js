@@ -6,8 +6,7 @@ import "../styles/Formulas.css";
 import Description from "../components/Description.jsx";
 import imgHeaderLight from "../assets/img_header.png";
 import imgHeaderDark from "../assets/img_header_dark_mode.png";
-import text from "../text.json";
-import axios from "axios";
+import text from "../JsonFiles/text.json";
 import FileUpload from "../components/FileUpload.jsx";
 import List from "../components/List.jsx";
 

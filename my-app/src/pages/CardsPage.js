@@ -6,6 +6,7 @@ import "../styles/Formulas.css";
 import Menu from "../components/Menu.jsx";
 import CardsFlip from "../components/CardsFlip.jsx";
 import AddNewWords from "../components/AddNewWords.jsx";
+import Dictionary from "../components/Dictionary.jsx";
 
 
 const CardsPage = () => {
@@ -47,6 +48,9 @@ const CardsPage = () => {
         <CardsFlip />
         <CardsFlip />
         <CardsFlip />
+      </div>
+      <div className="dictionary-with-words">
+        <Dictionary />
       </div>
     </div>
   );

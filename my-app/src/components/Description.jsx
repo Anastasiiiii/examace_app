@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import "../styles/Description.css";
 
 const Description = ({ name, text, img, button, onClickJoinButton }) => {

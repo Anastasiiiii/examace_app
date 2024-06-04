@@ -5,7 +5,7 @@ import Menu from "../components/Menu.jsx";
 import Description from "../components/Description.jsx";
 import useLocalStorage from "../elements/useLocalStorage.js";
 import List from "../components/List.jsx";
-import text from "../text.json";
+import text from "../JsonFiles/text.json";
 import imgHeaderLight from "../assets/img_header.png";
 import imgHeaderDark from "../assets/img_header_dark_mode.png";
 import GridChart from "../components/GridChart.jsx";

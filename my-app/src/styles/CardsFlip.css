@@ -46,12 +46,20 @@
   font-family: "Mada", sans-serif;
   font-style: normal;
   background: var(--yellow-color);
+  margin-top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flip-card-front img {
+  margin-left: 10px;
 }
 
 .flip-card-back {
   transform: rotateY(180deg);
-  background-color: var(--button-border-shadow-color);
-  color: var(--text-color);
+  background-color: var(--menu-container-color);
+  color: var(--menu-text-color);
 }
 
 .custom-box {
@@ -97,7 +105,7 @@
   border-bottom: 2px solid var(--yellow-color);
   outline: 0;
   font-size: 1.2rem;
-  color: var(--text-color);
+  color: var(--menu-text-color);
   padding: 7px 0px;
   background: transparent;
   transition: border-color 0.2s;
@@ -141,4 +149,9 @@
   background-color: var(--yellow-color);
   border: none;
   box-shadow: 4px 3px var(--button-border-shadow-color);
+}
+
+.reload-button {
+  width: 40px;
+  height: 10px;
 }

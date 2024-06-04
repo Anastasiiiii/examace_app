@@ -30,13 +30,13 @@ const Levels = ({ onClick }) => {
     getCssVariableValue("--blue-color"),
     getCssVariableValue("--pink-color"),
     getCssVariableValue("--yellow-color"),
-  ]
+  ];
 
-  const levelsContainersData = Array.from({ length: 24}, (_, i) => ({
+  const levelsContainersData = Array.from({ length: 24 }, (_, i) => ({
     passage: `${i + 1}`,
     color: colors[i % colors.length],
   }));
-    
+
   return (
     <div>
       <ul id="levels-containers">

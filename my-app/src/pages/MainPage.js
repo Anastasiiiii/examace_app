@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import useLocalStorage from "../elements/useLocalStorage.js";
 import "../styles/MainPage.css";
 import "../styles/Formulas.css";
@@ -9,8 +10,8 @@ import Containers from "../components/Containers.jsx";
 import FormContainer from "../components/FormContainer.jsx";
 import imgHeaderLight from "../assets/img_header.png";
 import imgHeaderDark from "../assets/img_header_dark_mode.png";
-import text from "../text.json";
-import icons from "../icons.json";
+import text from "../JsonFiles/text.json";
+import icons from "../JsonFiles/icons.json";
 
 const textDescription = text.text[0].text;
 const appName = text.text[1].text;
@@ -20,6 +21,7 @@ const arrowIcon = icons.icons[4].src;
 const arrowDownIcon = icons.icons[5].src;
 
 function MainPage() {
+  const navigate = useNavigate();
   const [formBox, setFormBox] = useState(false);
   const [isDarkMode, setIsDarkMode] = useLocalStorage(false);
 
@@ -61,10 +63,14 @@ function MainPage() {
   );
   const headerImage = isDarkMode ? imgHeaderDark : imgHeaderLight;
 
+  const handleNavigate = (path) => {
+    navigate(path, { state: { id: "Guest"} });
+  };
+
   return (
     <div className="App" style={{ backgroundColor: "var(--background-color)" }}>
       <menu className="menu">
-        <Menu list={menuList} />
+        <Menu list={menuList} onNavigate={handleNavigate} />
         <button className="mode-button" onClick={toggleDarkMode}>
           Dark mode
         </button>
