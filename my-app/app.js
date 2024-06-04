@@ -51,8 +51,7 @@ app.post("/", async (req, res) => {
 });
 
 app.get("/getUsers", (req, res) => {
-  UsersModel
-    .find()
+  UsersModel.find()
     .then((users) => {
       res.json(users);
     })
@@ -66,25 +65,24 @@ app.get("/getUsers", (req, res) => {
     });
 });
 
-app.get("/getUsers/:username", (req, res) => {
+app.get("/getUsers/:username", async (req, res) => {
   const { username } = req.params;
-  UsersModel
-    .findOne({ username: username })
-    .then((user) => {
+  try {
+    UsersModel.findOne({ username: username }).then((user) => {
       if (user) {
         res.json(user);
       } else {
         res.status(404).json({ status: "error", message: "Users not found" });
       }
-    })
-    .catch((err) => {
-      console.error("Error fetching users:", err);
-      res.status(500).json({
-        status: "error",
-        message: "Failed to fetch users",
-        error: err.message,
-      });
     });
+  } catch (err) {
+    console.error("Error fetching users:", err);
+    res.status(500).json({
+      status: "error",
+      message: "Failed to fetch users",
+      error: err.message,
+    });
+  }
 });
 
 let fileData = " ";
@@ -143,11 +141,14 @@ app.get("/getRandomUploadedFile", (req, res) => {
     });
   });
 });
-app.get("/getMarks", (req, res) => {
-  MarksModel.find()
-    .then((marks) => res.json(marks))
-    .catch((err) => res.json(err));
+app.get("/getMarks", async (req, res) => {
+  try {
+    MarksModel.find().then((marks) => res.json(marks));
+  } catch (err) {
+    res.json(err);
+  }
 });
+
 app.post("/addMarks", async (req, res) => {
   const { username, mark } = req.body;
   if (!username || mark === undefined) {
@@ -186,19 +187,19 @@ app.post("/addMarks", async (req, res) => {
   }
 });
 
-app.get("/getMarks/:username", (req, res) => {
+app.get("/getMarks/:username", async (req, res) => {
   const { username } = req.params;
-  MarksModel.findOne({ username: username })
-    .then((mark) => {
+  try {
+    MarksModel.findOne({ username: username }).then((mark) => {
       if (mark) {
         res.json(mark);
       } else {
         res.status(404).json({ status: "error", message: "Marks not found" });
       }
-    })
-    .catch((err) =>
-      res.status(500).json({ status: "error", message: err.message })
-    );
+    });
+  } catch (err) {
+    res.status(500).json({ status: "error", message: err.message });
+  }
 });
 
 app.post("/api/upload", upload.single("task"), (req, res) => {
