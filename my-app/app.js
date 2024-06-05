@@ -331,7 +331,7 @@ app.delete("/deleteTheWord", async (req, res) => {
   }
 
   try {
-    const signedUser = await users.findOne({ username: username });
+    const signedUser = await UsersModel.findOne({ username: username });
     if (!signedUser) {
       return res
         .status(404)

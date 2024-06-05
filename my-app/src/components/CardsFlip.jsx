@@ -56,6 +56,7 @@ const CardsFlip = () => {
           </div>
           <div className="flip-card-back div-container-class">
             <h1 className="h1-class">Definition</h1>
+            <p style={{textDecoration: "underline"}}>{word}:</p>
             <p>{definition}</p>
           </div>
         </motion.div>

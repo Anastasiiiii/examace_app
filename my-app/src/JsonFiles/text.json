@@ -1,26 +1,41 @@
 {"text": [
     {
        "id": "0", 
-      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+      "text": "Welcome to our Admin Dashboard's powerful file upload feature, designed to streamline the process of managing and sharing content. This intuitive tool allows administrators to effortlessly upload files alongside articles.",
       "type": "text"
     }, 
     {
-        "id": "1",
+        "id": "1", 
+       "text": "Welcome to your ultimate destination for English exam preparation! Our platform offers a wide array of practical tests, informative articles, and a personalized vocabulary dictionary to help you master essential words. Dive into your preparation journey today and unlock your full potential with our support!",
+       "type": "text"
+     },
+    {
+        "id": "2",
         "text": "Examace",
         "type": "text"
     },
     {
-        "id": "2",
+        "id": "3",
         "text": "Join us",
         "type": "text"
     },
     {
-        "id": "3",
-        "text": "It is a long established fact that a reader will be distracted.",
+        "id": "4",
+        "text": "A person who never made a mistake never tried anything new.",
         "type": "text"
     },
     {
-        "id": "4",
+        "id": "5",
+        "text": "Success is the sum of all efforts, repeated day-in & day out.",
+        "type": "text"
+    },
+    {
+        "id": "6",
+        "text": "Always remember that you are absolutely unique. Just like everyone else.",
+        "type": "text"
+    },
+    {
+        "id": "7",
         "text": "Trial Exam",
         "type": "text"
     } 

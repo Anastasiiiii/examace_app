@@ -3,7 +3,9 @@ import Cards from "./Cards";
 import text from "../JsonFiles/text.json";
 import "../styles/Formulas.css";
 
-const passageText = text.text[3].text;
+const passageText = text.text[4].text;
+const passageText2 = text.text[5].text;
+const passageText3 = text.text[6].text;
 
 const Containers = () => {
   const [theme, setTheme] = useState(
@@ -44,13 +46,13 @@ const Containers = () => {
     {
       icon: listIcon,
       icon2: arrowIcon,
-      passage: passageText,
+      passage: passageText2,
       color: getCssVariableValue("--pink-color"),
     },
     {
       icon: searchIcon,
       icon2: arrowIcon,
-      passage: passageText,
+      passage: passageText3,
       color: getCssVariableValue("--yellow-color"),
     },
   ];

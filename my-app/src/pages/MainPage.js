@@ -13,9 +13,9 @@ import imgHeaderDark from "../assets/img_header_dark_mode.png";
 import text from "../JsonFiles/text.json";
 import icons from "../JsonFiles/icons.json";
 
-const textDescription = text.text[0].text;
-const appName = text.text[1].text;
-const joinUsText = text.text[2].text;
+const textDescription = text.text[1].text;
+const appName = text.text[2].text;
+const joinUsText = text.text[3].text;
 
 const arrowIcon = icons.icons[4].src;
 const arrowDownIcon = icons.icons[5].src;

@@ -124,13 +124,13 @@ const Quiz = ({ onClick }) => {
         <h1>Task 1</h1>
         <img className="close-icon" src={closeIcon} onClick={onClick} />
         {result ? (
-          <>
+          <div className="last-container">
             <h2>
               Your scored {score} out of {data.length}
             </h2>
             <button onClick={reset}>Reset</button>
             <button onClick={finishTask}>Finish</button>
-          </>
+          </div>
         ) : (
           <>
             <p style={{ textAlign: "justify" }}>{fileData}</p>

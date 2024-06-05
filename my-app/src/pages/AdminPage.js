@@ -31,13 +31,6 @@ const AdminPage = () => {
     }
   }, [isDarkMode]);
 
-  //   const handleNavigate = (path) => {
-  //     navigate(path, { state: { id: currentUser.id } });
-  //   };
-
-//   const uploadTheFile = () => {
-//     axios.post(`http://localhost:3001/api/upload`, file);
-//   };
   const headerImage = isDarkMode ? imgHeaderDark : imgHeaderLight;
   const secondMenuList = [
     "Use of English",

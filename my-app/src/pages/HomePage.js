@@ -10,8 +10,8 @@ import imgHeaderLight from "../assets/img_header.png";
 import imgHeaderDark from "../assets/img_header_dark_mode.png";
 import GridChart from "../components/GridChart.jsx";
 
-const textDescription = text.text[0].text;
-const buttonName = text.text[4].text;
+const textDescription = text.text[1].text;
+const buttonName = text.text[7].text;
 
 const HomePage = () => {
   const [isDarkMode, setIsDarkMode] = useLocalStorage(false);
